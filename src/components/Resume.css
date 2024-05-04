@@ -1,0 +1,149 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.intro_bg{
+    /*background-image:url(clock.jpg);
+    background-repeat: no-repeat;
+    background-position: center;*/
+    height:900px;
+    width:1600px;
+    margin: auto;
+    display: flex;
+}
+
+.header{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    height:500px;
+    width:750px;
+    margin: auto;
+    background-color: navy;
+}
+
+.demo1{
+    margin-top: 100px;
+    height: 90px;
+    display:flex;
+    flex-direction:row;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    color:orange
+    
+}
+
+.resultbox{
+    margin-top:30px;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.result{
+    height:100px;
+    width:100px;
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: 500;
+    border: 0.2px solid #c4c4c4;
+    border-radius: 15px;
+    background-color: white;
+    color: orange;
+    border: 2px solid;
+   
+}
+.buttons{
+    margin-top: 50px;
+    height:50px;
+    width: 400px;
+    display:flex;
+    flex-direction: row;
+    justify-content:center;
+    color: orange;
+    border: 2px solid;
+    padding: 5px;
+    /*transition: all 0.4s ease-in; 왜 여기서 모든 버튼에 대한 transition을 하면 적용이 안되는걸까요...*/
+}
+
+.decrease{
+    margin-right: 10px;
+    width: 90px;
+    background: none;
+    color: orange;
+    border: 2px solid;
+    z-index: 1;  /*글씨를 가리지 않게 하기 위한 작업 / 여기서 근데 왜 z-index:2 그리고 .increase:before의 z-index:1이렇게 사용하면 글씨가 안보이는 걸까...
+                    z-index의 상대값을 이용해서 화면에 보이는 우선순위를 설정하려는 목적...*/
+    position:relative;
+}
+
+.decrease:before{
+    content:'';
+    position:absolute;
+    top:0;              /*출발점이 위쪽 이므로 top:0*/
+    left:0;
+    width:100%;
+    height:0px;
+    background: red;        /*hover가 일어나고 바탕은 빨간색으로*/
+    transition: all 0.4s ease-in;
+    z-index: -1;
+}
+.decrease:hover:before{   /* before을 이용한 위에서 아래로 내려오는 효과*/
+    height:100%;
+}
+
+.decrease:hover{
+    color:white;       /*hover가 일어나고 글자색은 흰색으로*/
+}
+
+.increase{
+    margin-right: 10px;
+    width: 90px;
+    background: none;
+    color: orange;
+    border: 2px solid;
+    z-index: 1;
+    position:relative;
+}
+
+.increase:before{
+    content:'';
+    position:absolute;
+    bottom:0;       /*출발점이 아래쪽 이므로 bottom:0*/
+    left:0;
+    width:100%;
+    height:0px;
+    background: red;     /*hover가 일어나고 바탕은 빨간색으로*/
+    transition: all 0.4s ease-in;
+    z-index: -1;
+}
+
+.increase:hover:before{   /*before을 이용한 *아래에서 위로 올라가는 효과*/
+    height:100%;
+}
+
+.increase:hover{
+    color:white;          /*hover가 일어나고 글자색은 흰색으로*/
+}
+
+
+.reset{
+    width: 60px;
+    background: none;
+    color: orange;
+    border: 2px solid;
+    transition: all 0.6s ease-in;
+}
+
+.reset:hover{
+    background: red;  /*hover가 일어나고 바탕은 빨간색으로*/
+    color: white;      /*hover가 일어나고 글자색은 흰색으로*/
+    box-shadow:inset 45px 0 0 red, inset -45px 0 0 red;  /*shadowing을 이용한 hover기능  양 옆에서 닫히는 효과*/
+}
